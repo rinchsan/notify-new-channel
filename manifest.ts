@@ -1,17 +1,16 @@
 import { Manifest } from "deno-slack-sdk/mod.ts";
-import GreetingWorkflow from "./workflows/greeting_workflow.ts";
+import NotifyWorkflow from "./workflows/notify.ts";
 
-/**
- * The app manifest contains the app's configuration. This
- * file defines attributes like app name and description.
- * https://api.slack.com/future/manifest
- */
 export default Manifest({
   name: "notify-new-channel",
-  description:
-    "A sample that demonstrates using a function, workflow and trigger to send a greeting",
+  description: "Notify new channel created/renamed",
   icon: "assets/icon.png",
-  workflows: [GreetingWorkflow],
+  workflows: [NotifyWorkflow],
   outgoingDomains: [],
-  botScopes: ["commands", "chat:write", "chat:write.public"],
+  botScopes: [
+    "commands",
+    "chat:write",
+    "chat:write.public",
+    "channels:read",
+  ],
 });
