@@ -27,7 +27,7 @@ export default SlackFunction(
   SendMessageFunctionDefinition,
   async ({ inputs, env, token }) => {
     const { new_channel_id, new_channel_name } = inputs;
-    const prefix = env["prefix"] ?? "";
+    const prefix = env["channel-prefix"] ?? "";
     const notify_channel_id = env["notify-channel-id"] ?? "";
 
     if (!new_channel_name.startsWith(prefix)) {
