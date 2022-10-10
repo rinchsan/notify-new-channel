@@ -25,7 +25,7 @@ export const SendMessageFunctionDefinition = DefineFunction({
         type: Schema.types.string,
       },
     },
-    required: ["notified"],
+    required: ["notified", "message"],
   },
 });
 
@@ -37,10 +37,14 @@ export default SlackFunction(
     const notify_channel_id = env["notify-channel-id"] ?? "";
 
     if (!new_channel_name.startsWith(prefix)) {
-      return { outputs: { notified: false } };
+      return {
+        outputs: { notified: false, message: "does not match prefix" },
+      };
     }
     if (notify_channel_id.length == 0) {
-      return { outputs: { notified: false } };
+      return {
+        outputs: { notified: false, message: "notify-channel-id is empty" },
+      };
     }
 
     let message = `:new: New `;
