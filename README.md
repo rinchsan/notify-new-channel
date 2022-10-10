@@ -1,6 +1,6 @@
 # notify-new-channel
 
-Notify new channel created/renamed on new Slack platform
+Notify new channel created/renamed on Next-gen Slack platform
 
 ## Install
 
