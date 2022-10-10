@@ -1,5 +1,4 @@
 import { DefineFunction, Schema, SlackFunction } from "deno-slack-sdk/mod.ts";
-import { SlackAPI } from "deno-slack-api/mod.ts";
 
 export const SendMessageFunctionDefinition = DefineFunction({
   callback_id: "send_message",
