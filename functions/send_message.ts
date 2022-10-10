@@ -29,7 +29,7 @@ export const SendMessageFunctionDefinition = DefineFunction({
 
 export default SlackFunction(
   SendMessageFunctionDefinition,
-  async ({ inputs, env, token }) => {
+  async ({ inputs, env, client }) => {
     const { new_channel_id, new_channel_name } = inputs;
     const prefix = env["channel-prefix"] ?? "";
     const notify_channel_id = env["notify-channel-id"] ?? "";
@@ -47,7 +47,6 @@ export default SlackFunction(
     }
     message += `channel created: <#${new_channel_id}>`;
 
-    const client = SlackAPI(token);
     await client.chat.postMessage({
       channel: notify_channel_id,
       text: message,
