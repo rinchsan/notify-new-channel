@@ -2,7 +2,7 @@
 
 Notify new channel created/renamed on new Slack platform
 
-## Getting started
+## Install
 
 Deploy and create triggers.
 
@@ -19,7 +19,7 @@ slack env add notify-channel-id [CHANNEL_ID_TO_NOTIFY]
 slack env add channel-prefix [CHANNEL_PREFIX_TO_NOTIFY]
 ```
 
-## Run Test
+## Run test
 
 ```sh
 make test
