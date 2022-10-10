@@ -12,7 +12,7 @@ slack trigger create --trigger-def "triggers/channel_created.ts"
 slack trigger create --trigger-def "triggers/channel_renamed.ts"
 ```
 
-Set environment variables.
+Add environment variables.
 
 ```sh
 slack env add notify-channel-id [CHANNEL_ID_TO_NOTIFY]
