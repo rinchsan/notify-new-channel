@@ -18,8 +18,12 @@ export const SendMessageFunctionDefinition = DefineFunction({
     required: ["new_channel_id", "new_channel_name"],
   },
   output_parameters: {
-    properties: {},
-    required: [],
+    properties: {
+      notified: {
+        type: Schema.types.boolean,
+      },
+    },
+    required: ["notified"],
   },
 });
 
@@ -31,10 +35,10 @@ export default SlackFunction(
     const notify_channel_id = env["notify-channel-id"] ?? "";
 
     if (!new_channel_name.startsWith(prefix)) {
-      return { outputs: {} };
+      return { outputs: { notified: false } };
     }
     if (notify_channel_id.length == 0) {
-      return { outputs: {} };
+      return { outputs: { notified: false } };
     }
 
     let message = `:new: New`;
@@ -49,6 +53,6 @@ export default SlackFunction(
       text: message,
     });
 
-    return { outputs: {} };
+    return { outputs: { notified: true } };
   },
 );
