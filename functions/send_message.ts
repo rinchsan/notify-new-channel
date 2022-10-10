@@ -21,6 +21,9 @@ export const SendMessageFunctionDefinition = DefineFunction({
       notified: {
         type: Schema.types.boolean,
       },
+      message: {
+        type: Schema.types.string,
+      },
     },
     required: ["notified"],
   },
@@ -51,6 +54,6 @@ export default SlackFunction(
       text: message,
     });
 
-    return { outputs: { notified: true } };
+    return { outputs: { notified: true, message: message } };
   },
 );
