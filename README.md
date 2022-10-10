@@ -18,3 +18,9 @@ Set environment variables.
 slack env add notify-channel-id [CHANNEL_ID_TO_NOTIFY]
 slack env add channel-prefix [CHANNEL_PREFIX_TO_NOTIFY]
 ```
+
+## Run Test
+
+```sh
+make test
+```
