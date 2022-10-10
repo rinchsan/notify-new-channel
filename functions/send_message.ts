@@ -43,9 +43,9 @@ export default SlackFunction(
       return { outputs: { notified: false } };
     }
 
-    let message = `:new: New`;
+    let message = `:new: New `;
     if (prefix.length > 0) {
-      message += ` \`#${prefix}\` `;
+      message += `\`#${prefix}\` `;
     }
     message += `channel created: <#${new_channel_id}>`;
 
